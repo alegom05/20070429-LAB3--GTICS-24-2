@@ -5,7 +5,7 @@
 <main>
     <div class="container px-4 pb-5">
         <nav th:replace="~{fragments/navbar.html :: navbar( active = 'Product')}"></nav>
-        <h1 class="pb-2 border-bottom">Lista Empleados</h1>
+        <h1 class="pb-2 border-bottom">Lista Historial</h1>
         <!--
         <a class="btn btn-primary mt-4 mb-4" th:href="@{'/product/new'}">Nuevo Producto</a>
         -->
@@ -17,10 +17,10 @@
                 <th>#</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Cargo</th>
                 <th>Departamento</th>
-                <th>Telefono</th>
-                <th>Salario</th>
+                <th>Puesto</th>
+                <th>Hire Date</th>
+                <th>End Date</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -33,7 +33,7 @@
                 <td th:text="${employee.department.department}"></td>
                 <td th:text="${employee.job.job}"></td>
 
-                <td th:text="${employee.salary} "></td>
+                <td th:text="${employee.hiredate} "></td>
 
                 <td><a class="btn btn-primary"
                        th:href="@{'/employee/info/{id}'(id=${employee.id})}" style="border: 2px solid green; background-color: transparent;">
