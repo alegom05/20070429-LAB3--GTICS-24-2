@@ -31,6 +31,11 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "job_id")
     private Job job;
+    @Column(name = "phone_number")
+    private String phone;
+    private double salary;
+    @Column(name = "hire_date")
+    private Date hiredate;
     /*@ManyToOne
     @JoinColumn(name="department_id")
     private Department department;*/
