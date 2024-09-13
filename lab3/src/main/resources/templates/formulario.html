@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>Informacion</h1>
+        <form  >
+            <label>Nombre:</label>
+            <input type="text" th:text="${employee.firstname}" /><br />
+            <label>Apellido:</label>
+            <input type="text" th:text="${employee.firstname}" /><br />
+            <label>Correo:</label>
+            <input type="text" th:text="${employee.email}" /><br />
+            <label>Departemento:</label>
+            <input type="text" th:text="${employee.department.department}"/><br />
+            <label>Ciudad:</label>
+            <input type="text" th:value="${employee.department.location.city}"/><br />
+
+            <a href="#" th:href="@{/employee/}">Regresar</a>
+
+        </form>
+    </body>
+</html>

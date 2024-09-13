@@ -1,0 +1,133 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Informacion</h1>
+<form  >
+    <label>Nombre:</label>
+    <input type="text" th:text="${employee.firstname}" /><br />
+    <label>Apellido:</label>
+    <input type="text" th:text="${employee.lastname}" /><br />
+    <label>Correo:</label>
+    <input type="text" th:text="${employee.email}" /><br />
+    <label>Departemento:</label>
+    <input type="text" th:text="${employee.department.department}"/><br />
+    <label>Ciudad:</label>
+    <input type="text" th:value="${employee.department.location.city}"/><br />
+
+    <a href="#" th:href="@{/employee/}">Regresar</a>
+
+</form>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+          crossorigin="anonymous">
+    <title>Employee Information</title>
+    <style>
+        body {
+            font-family:Georgia;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .form-container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group input[disabled] {
+            background-color: #f9f9f9;
+        }
+
+        .btn-custom {
+            border: 2px solid #007bff; /* Borde azul */
+            background-color: transparent; /* Fondo transparente */
+            color: #007bff; /* Texto azul */
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .btn-custom:hover {
+            background-color: #007bff; /* Fondo azul al pasar el mouse */
+            color: white; /* Texto blanco */
+        }
+    </style>
+</head>
+<body>
+<h1>Informacion</h1>
+<div class="form-container">
+    <form>
+        <div class="form-group">
+            <label for="firstname">Nombre:</label>
+            <input type="text" id="firstname" th:value="${employee.firstname}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="lastname">Apellido:</label>
+            <input type="text" id="lastname" th:value="${employee.lastname}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="email">Correo:</label>
+            <input type="text" id="email" th:value="${employee.email}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="department">Departamento:</label>
+            <input type="text" id="department" th:value="${employee.department.department}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="city">Ciudad:</label>
+            <input type="text" id="city" th:value="${employee.department.location.city}" disabled />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Trabajo</label>
+            <select name="employee" id="employee" class="form-select">
+                <option th:each="job : ${listaTrabajadores}"
+                        th:value="${job.id}"
+                        th:text="${job.job}"
+                        th:selected="${job.id == employee.job.id}"></option>
+            </select>
+        </div>
+
+        <div class="form-group btn-primary">
+            <a href="#" th:href="@{/employee/}" class=" btn-custom">Regresar</a>
+        </div>
+
+        <!--//Botón registrar-cancelar
+        <a th:href="@{/employee}" class="btn btn-danger">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+        -->
+    </form>
+</div>
+</body>
+</html>
